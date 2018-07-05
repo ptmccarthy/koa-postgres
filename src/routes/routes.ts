@@ -4,12 +4,9 @@ import * as passport from 'koa-passport';
 import { getRepository } from 'typeorm';
 
 import logger from '../logger';
-
-import { Car } from '../entity/car';
 import { User } from '../entity/user';
 
 const routes = new Router();
-const car = new Car();
 
 routes
   .use('*', async (ctx, next) => {
@@ -73,25 +70,6 @@ routes
 
   .get('/api/users', async (ctx) => {
     ctx.body = await User.find();
-  })
-
-  .get('/api/cars', async (ctx) => {
-    ctx.body = await Car.find();
-  })
-
-  .post('/api/car/create', async (ctx) => {
-    const { ...params } = ctx.request.body;
-
-    let newCar = new Car();
-
-    newCar = Object.assign(newCar, params);
-
-    try {
-      await newCar.save();
-      ctx.status = 200;
-    } catch (e) {
-      ctx.body = e;
-    }
   });
 
 export default routes;
