@@ -29,5 +29,36 @@ Then, two run scripts are provided:
 
 - `npm run dev` will run the Typescript compiler in watch mode concurrently with nodemon in watch mode, recompiling changes on the fly and restarting the node service.
 
+## Register a User
+POST to `/register`:
+```
+{ username: 'foo', password: 'bar', firstName: 'Test', lastName: 'User' }
+```
+
+Creates a new user, logs in, and returns a session cookie
+
+## Login existing User
+POST to `/login`:
+```
+{ username: 'foo', password: 'bar' }
+```
+
+If successful, logs in and returns a session cookie
+
+
+## Show all Users
+To test that your session is working, GET the protected endpoint `/api/users`
+
+```
+[
+  {
+      "id": 1,
+      "username": "foo",
+      "firstName": "Test",
+      "lastName": "User"
+  }
+]
+```
+
 ## Notes
 This is just a starting point example, and is not production-ready.
