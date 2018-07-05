@@ -3,9 +3,10 @@
 This is an example skeleton application that provides a simple implementation of:
 
 - [Koa web framework](https://koajs.com/) with [Typescript](https://www.typescriptlang.org/)
-- [PostgreSQL](https://www.postgresql.org/) database via [Docker](https://www.docker.com/)
+- [PostgreSQL](https://www.postgresql.org/) database via [Docker](https://www.docker.com/), connected with [TypeORM](https://github.com/typeorm/typeorm)
 - Local authentication with [Passport](https://github.com/rkusa/koa-passport)
 - User registration/login with salted & hashed passwords via [bcryptjs](https://www.npmjs.com/package/bcryptjs/v/0.7.6)
+- User sessions with cookies, provided by [koa-session](https://github.com/koajs/session)
 
 ## Prerequisites
 - Node.js version 8+
