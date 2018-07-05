@@ -1,0 +1,40 @@
+{
+  "name": "moneypit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && nodemon dist/server.js",
+    "dev": "concurrently \"tsc -w\" \"nodemon dist/server.js\""
+  },
+  "author": "Patrick McCarthy",
+  "license": "ISC",
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.1",
+    "@types/koa": "^2.0.46",
+    "@types/koa-bodyparser": "^4.2.0",
+    "@types/koa-passport": "^4.0.1",
+    "@types/koa-router": "^7.0.28",
+    "@types/koa-session": "^5.7.4",
+    "@types/node": "^10.3.4",
+    "@types/passport-local": "^1.0.33",
+    "bcryptjs": "^2.4.3",
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-passport": "^4.1.0",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.8.1",
+    "passport-local": "^1.0.0",
+    "pg": "^7.4.3",
+    "reflect-metadata": "^0.1.12",
+    "typeorm": "^0.2.7",
+    "typescript": "^2.9.2",
+    "winston": "^3.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.17.5",
+    "tslint": "^5.10.0"
+  }
+}
