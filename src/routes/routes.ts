@@ -1,5 +1,6 @@
 import * as Router from 'koa-router';
 import * as bcrypt from 'bcryptjs';
+import * as Joi from 'joi';
 import * as passport from 'koa-passport';
 import { getRepository } from 'typeorm';
 
@@ -48,19 +49,26 @@ routes
   })
 
   .post('/register', async (ctx, next) => {
-    const { username, password, firstName, lastName } = ctx.request.body;
+    const body = ctx.request.body;
+    const schema = Joi.object().keys({
+      username: Joi.string(),
+      password: Joi.string(),
+      firstName: Joi.string(),
+      lastName: Joi.string()
+    });
+
+    const result = Joi.validate(body, schema);
+    if (result.error) {
+      logger.error(JSON.stringify(result.error));
+      ctx.throw(400, result.error.message);
+    }
 
     const salt = await bcrypt.genSalt();
-    const hash = await bcrypt.hash(password, salt);
-    const userRepo = getRepository(User);
+    const hash = await bcrypt.hash(body.password, salt);
     let userEntity = new User();
+    Object.assign(userEntity, body, { password: hash });
 
-    userEntity.username = username;
-    userEntity.password = hash;
-    userEntity.firstName = firstName;
-    userEntity.lastName = lastName;
-
-    userEntity = await userRepo.save(userEntity);
+    userEntity = await getRepository(User).save(userEntity);
 
     return passport.authenticate('local', {
       successRedirect: '/api/users',

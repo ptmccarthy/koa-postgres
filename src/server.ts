@@ -1,6 +1,5 @@
 import 'reflect-metadata';
 import * as Koa from 'koa';
-import * as Router from 'koa-router';
 import * as bodyParser from 'koa-bodyparser';
 import * as passport from 'koa-passport';
 import * as session from 'koa-session';
@@ -13,7 +12,6 @@ import routes from './routes/routes';
 const PORT = 3000;
 
 const koa = new Koa();
-const router = new Router();
 
 // koa-bodyparser
 koa.use(bodyParser());
