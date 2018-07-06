@@ -7,6 +7,7 @@ This is an example skeleton application that provides a simple implementation of
 - Local authentication with [Passport](https://github.com/rkusa/koa-passport)
 - User registration/login with salted & hashed passwords via [bcryptjs](https://www.npmjs.com/package/bcryptjs/v/0.7.6)
 - User sessions with cookies, provided by [koa-session](https://github.com/koajs/session)
+- Request object schema validation with [Joi](https://github.com/hapijs/joi)
 
 ## Prerequisites
 - Node.js version 8+
