@@ -30,7 +30,7 @@
     "passport-local": "^1.0.0",
     "pg": "^7.4.3",
     "reflect-metadata": "^0.1.12",
-    "typeorm": "^0.2.7",
+    "typeorm": "^0.2.25",
     "typescript": "^3.0.1",
     "winston": "^3.0.0"
   },
